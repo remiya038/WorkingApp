@@ -1,14 +1,13 @@
-/*    */ package beans;
-/*    */
-/*    */ import java.io.Serializable;
+ package beans;
+import java.io.Serializable;
 import java.sql.Timestamp;
-/*    */
-/*    */ public class Timesheet implements Serializable {
-/*    */    private int emp_no;
-/*    */    private Timestamp punchin;
-/*    */    private Timestamp punchout;
-/*    */    private Timestamp exe_date;
-/*    */
+
+public class Timesheet implements Serializable {
+private int emp_no;
+private Timestamp punchin;
+private Timestamp punchout;
+private Timestamp exe_date;
+
 public int getEmp_no() {
 	return emp_no;
 }
@@ -34,7 +33,7 @@ public void setExe_date(Timestamp exe_date) {
 	this.exe_date = exe_date;
 }
 
-/*    */ }
+ }
 
 /*
 	DECOMPILATION REPORT
