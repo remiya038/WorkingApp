@@ -35,6 +35,7 @@ public class Logic_setting {
 	}
 
 
+
 	//設定情報を取得しbeansに格納
 	public Beans_setting get() {
 		Beans_setting setting;

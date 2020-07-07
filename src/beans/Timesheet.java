@@ -34,12 +34,3 @@ public void setExe_date(Timestamp exe_date) {
 }
 
  }
-
-/*
-	DECOMPILATION REPORT
-
-	Decompiled from: C:\Users\_remiya_\Desktop\pleiades\workspace\kentech\WEB-INF\classes\beans\Timesheet.class
-	Total time: 12 ms
-
-	Decompiled with FernFlower.
-*/

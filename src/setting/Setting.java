@@ -36,7 +36,15 @@ public class Setting extends HttpServlet {
 		  	String msg = (String) request.getAttribute("msg");
 		  	request.setAttribute("msg",msg);
     	    ServletContext context = this.getServletContext();
+
+    	    //サーバーにあげる際にsetting.JSPを削除 サーバーでSetting.javaへアクセスするとLogin.javaの処理
             RequestDispatcher dispatch = context.getRequestDispatcher("/setting.jsp");
-            dispatch.forward(request, response);
+            if(dispatch == null) {
+            	dispatch.forward(request, response);
+            }else{
+    	    	response.sendRedirect("Login");
+            }
+
+
       }
    }

@@ -14,8 +14,8 @@ import beans.Userdata;
 import logic.Time_logic;
 import logic.Timesheet_logic;
 
- @WebServlet({"/timesheet_output"})
- public class Timesheet_output extends HttpServlet {
+ @WebServlet({"/timesheet_date_change"})
+ public class Timesheet_date_change extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,11 +37,13 @@ import logic.Timesheet_logic;
        if (session_data != null) {
          ArrayList<Timesheet> timesheets = logic.table(session_data.getEmp_no());
          if (timesheets != null) {
+        	 int year = Integer.parseInt(request.getParameter("year"));
+        	 int month = Integer.parseInt(request.getParameter("month"));
+        	 int maxday = time_logic.getActualMaximum(year,month);
         	 session.setAttribute("timesheets", timesheets);//勤怠情報出力
-        	 //今の日付時刻の情報をセット
-        	 session.setAttribute("year", time_logic.getYear());
-        	 session.setAttribute("month", time_logic.getMonth());
-        	 session.setAttribute("maxday", time_logic.getActualMaximum( time_logic.getYear(),time_logic.getMonth()));
+        	 session.setAttribute("year", year);
+        	 session.setAttribute("month", month);
+        	 session.setAttribute("maxday", maxday);
         	 response.sendRedirect("Timesheet");
           }
        } else {
